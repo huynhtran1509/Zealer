@@ -59,7 +59,7 @@ static NSString * const ID = @"cell";
         layout.scrollDirection = UICollectionViewScrollDirectionHorizontal;
         
         // 计算左边间距
-        CGFloat leftMargin = (self.view.bounds.size.width - 160) * 0.5;
+        CGFloat leftMargin = (self.view.bounds.size.width - 200) * 0.5;
         
         // 设置额外滚动区域
         layout.sectionInset = UIEdgeInsetsMake(0, leftMargin, 0, 0);
