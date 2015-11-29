@@ -42,7 +42,7 @@
         CGFloat delta = fabs(w * 0.5 - (att.center.x - offsetX));
         
         // 计算比例,离中心点距离越大,缩放
-        CGFloat scale = 1 - delta / w * 0.5;
+        CGFloat scale = 1.05 - delta / w * 0.5;
         
         att.transform = CGAffineTransformMakeScale(scale, scale);
     }
