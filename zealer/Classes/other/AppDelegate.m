@@ -10,7 +10,7 @@
 #import "HJWTabbarController.h"
 #import "UIImage+GIF.h"
 
-#define screenW [UIScreen mainScreen].bounds.size.width
+
 @interface AppDelegate ()
 @property (nonatomic, strong) UIImageView *launchAnimationView;
 @property (nonatomic, strong) UIView *view;
