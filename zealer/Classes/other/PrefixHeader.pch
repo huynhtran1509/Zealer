@@ -1,0 +1,32 @@
+//
+//  PrefixHeader.pch
+//  zealer
+//
+//  Created by 杜超凡 on 15/12/1.
+//  Copyright © 2015年 hujiawei. All rights reserved.
+//
+
+#ifndef PrefixHeader_pch
+#define PrefixHeader_pch
+
+#ifdef __OBJC__
+
+#ifdef DEBUG
+#define liqi_Log(...) NSLog(__VA_ARGS__)
+#else
+#define NSLog(...)
+#endif
+
+#import "UIImage+Image.h"
+//打印func
+#define liuqi_func NSLog(@"%s", __func__);
+//获取APP
+#define Application [UIApplication sharedApplication]
+//颜色RGBA
+#define liuqi_Color(r, g, b) [UIColor colorWithRed:(r)/255.0 green:(g)/255.0 blue:(b)/255.0 alpha:1 ]
+//随机颜色
+#define liuqi_RandomColor liuqi_Color(arc4random_uniform(255), arc4random_uniform(255), arc4random_uniform(255))
+
+#endif
+
+#endif

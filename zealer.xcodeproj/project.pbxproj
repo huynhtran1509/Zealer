@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5A663BAA1C0D96BC00D1B17F /* UIImage+Image.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A663BA91C0D96BC00D1B17F /* UIImage+Image.m */; };
 		C82EC2721C00C0D700F76096 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C82EC2701C00C0D700F76096 /* Info.plist */; };
 		C82EC2731C00C0D700F76096 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C82EC2711C00C0D700F76096 /* main.m */; };
 		C893964B1C00C1DE00EFE0E9 /* mainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C893964A1C00C1DE00EFE0E9 /* mainViewController.m */; };
@@ -28,6 +29,9 @@
 /* Begin PBXFileReference section */
 		1A128311031DB581579EC9A4 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		28A335D0700CA09038C92B87 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		5A663BA51C0D941D00D1B17F /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
+		5A663BA81C0D96BC00D1B17F /* UIImage+Image.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Image.h"; sourceTree = "<group>"; };
+		5A663BA91C0D96BC00D1B17F /* UIImage+Image.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Image.m"; sourceTree = "<group>"; };
 		7DB2F1A854BFC8FBDCA2216A /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		C82EC2701C00C0D700F76096 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C82EC2711C00C0D700F76096 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -73,6 +77,23 @@
 				1A128311031DB581579EC9A4 /* libPods.a */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		5A663BA61C0D96AB00D1B17F /* category */ = {
+			isa = PBXGroup;
+			children = (
+				5A663BA71C0D96BC00D1B17F /* 取消图片渲染 */,
+			);
+			name = category;
+			sourceTree = "<group>";
+		};
+		5A663BA71C0D96BC00D1B17F /* 取消图片渲染 */ = {
+			isa = PBXGroup;
+			children = (
+				5A663BA81C0D96BC00D1B17F /* UIImage+Image.h */,
+				5A663BA91C0D96BC00D1B17F /* UIImage+Image.m */,
+			);
+			path = "取消图片渲染";
 			sourceTree = "<group>";
 		};
 		B30B4E1132CD213F22E64B0F /* Pods */ = {
@@ -130,10 +151,12 @@
 		C82EC26F1C00C0D700F76096 /* other */ = {
 			isa = PBXGroup;
 			children = (
+				5A663BA61C0D96AB00D1B17F /* category */,
 				C89396551C00E3FC00EFE0E9 /* XMGInfiniteScrollView.h */,
 				C89396561C00E3FC00EFE0E9 /* XMGInfiniteScrollView.m */,
 				C82EC2701C00C0D700F76096 /* Info.plist */,
 				C82EC2711C00C0D700F76096 /* main.m */,
+				5A663BA51C0D941D00D1B17F /* PrefixHeader.pch */,
 			);
 			path = other;
 			sourceTree = "<group>";
@@ -377,6 +400,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C8B69EFB1C098CDE001AB73A /* PhotoCell.m in Sources */,
+				5A663BAA1C0D96BC00D1B17F /* UIImage+Image.m in Sources */,
 				C8B69EFF1C098CF0001AB73A /* FlowLayout.m in Sources */,
 				C893964E1C00C1F100EFE0E9 /* bbsViewController.m in Sources */,
 				C89396571C00E3FC00EFE0E9 /* XMGInfiniteScrollView.m in Sources */,
@@ -498,6 +522,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "Brand Assets";
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = zealer/Classes/other/PrefixHeader.pch;
 				INFOPLIST_FILE = "$(SRCROOT)/zealer/Classes/other/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -512,6 +538,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "Brand Assets";
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = zealer/Classes/other/PrefixHeader.pch;
 				INFOPLIST_FILE = "$(SRCROOT)/zealer/Classes/other/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
