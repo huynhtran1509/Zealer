@@ -9,20 +9,17 @@
 #import "mainViewController.h"
 #import "XMGInfiniteScrollView.h"
 #import "PhotoCell.h"
-
 #import "FlowLayout.h"
+#import "GlobalConst.h"
 
-#define screenW [UIScreen mainScreen].bounds.size.width
-#define scrollH 145
-#define scrollY 64
 
 @interface mainViewController ()<UICollectionViewDataSource,UITableViewDataSource>
 
 @property (nonatomic, strong) NSArray *image;
-@property(nonatomic, strong)XMGInfiniteScrollView *scrollView ;
+@property (nonatomic, strong) XMGInfiniteScrollView *scrollView ;
 @property (nonatomic, strong) UIPageControl *pageControl;
-@property(nonatomic, strong) UICollectionView  *collectionView;
-@property (nonatomic, strong)UITableView *tableView;
+@property (nonatomic, strong) UICollectionView  *collectionView;
+@property (nonatomic, strong) UITableView *tableView;
 
 @end
 
@@ -36,7 +33,7 @@ static NSString * const ID = @"cell";
     //将自动调整scroll设置成No,scroll就不会被挤下去
     self.automaticallyAdjustsScrollViewInsets = NO;
     self.view.backgroundColor = [UIColor lightGrayColor];
-    
+    self.navigationItem.title = @"主页";
    /*****************************设置主页顶部轮播图*********************************/
     //1.设置主页顶部轮播图
     [self setMainTopImage];
@@ -53,7 +50,7 @@ static NSString * const ID = @"cell";
         UICollectionViewFlowLayout *layout = [[FlowLayout alloc] init];
         
         // 设置尺寸
-        layout.itemSize = CGSizeMake(200, 140);
+        layout.itemSize = CGSizeMake(200, 100);
         
         // 设置水平滚动方向
         layout.scrollDirection = UICollectionViewScrollDirectionHorizontal;
@@ -62,7 +59,7 @@ static NSString * const ID = @"cell";
         CGFloat leftMargin = (self.view.bounds.size.width - 200) * 0.5;
         
         // 设置额外滚动区域
-        layout.sectionInset = UIEdgeInsetsMake(0, leftMargin, 0, 0);
+        layout.sectionInset = UIEdgeInsetsMake(15, leftMargin, 0, leftMargin);
         
         // 设置cell间距
         //layout.minimumInteritemSpacing = -10;
@@ -70,19 +67,21 @@ static NSString * const ID = @"cell";
         
         layout;
         
+
     });
     
     // 3.创建UICollectionView
     // UICollectionView默认的颜色就是黑色
-    CGFloat f = CGRectGetMaxY(self.scrollView.frame);
+    CGFloat MaxY = CGRectGetMaxY(self.scrollView.frame);
     _collectionView = ({
         
-         self.collectionView =  [[UICollectionView alloc] initWithFrame:CGRectMake(0,  f, self.view.bounds.size.width, 160) collectionViewLayout:layout];
+         self.collectionView =  [[UICollectionView alloc] initWithFrame:CGRectMake(0,  MaxY, self.view.bounds.size.width, 145) collectionViewLayout:layout];
         
         _collectionView.backgroundColor = [UIColor whiteColor];
         
 //        collectionView.center = self.view.center;
         
+//        CGFloat labelX = _collectionView.
         
         // 设置数据源,展示数据
         _collectionView.dataSource = self;
@@ -92,7 +91,7 @@ static NSString * const ID = @"cell";
         
         
         _collectionView.showsHorizontalScrollIndicator = NO;
-        
+
         _collectionView;
         
     });
@@ -100,17 +99,16 @@ static NSString * const ID = @"cell";
     /*****************************设置中间轮播图*********************************/
     
     
-    
     /*****************************设置中间轮播图的PageControl*********************************/
     
     CGFloat width = 80;
     CGFloat x = _collectionView.center.x - width * 0.5;
-    CGFloat y = _collectionView.center.y + _collectionView.bounds.size.width * 0.17;
+    CGFloat y = _collectionView.center.y + _collectionView.bounds.size.width * 0.15;
     CGFloat heigth = 20;
     
     
     self.pageControl = [[UIPageControl alloc]initWithFrame:CGRectMake(x, y, width, heigth)];
-    self.pageControl.numberOfPages = 4;
+    self.pageControl.numberOfPages = 6;
     self.pageControl.currentPage = 3;
     self.pageControl.currentPageIndicatorTintColor = [UIColor orangeColor];
     self.pageControl.pageIndicatorTintColor = [UIColor lightGrayColor];
@@ -121,6 +119,18 @@ static NSString * const ID = @"cell";
     
     [self addTable];
     [self.view addSubview:self.tableView];
+    
+    //设置轮播图上面的label
+    UILabel *label = [[UILabel alloc]init];
+    label.HJW_width = 100;
+    label.HJW_height = 15;
+    label.center = CGPointMake( screenW * 0.5 + 40 , _collectionView.HJW_y + 15);
+    label.text = @"12月1日";
+    label.font = [UIFont systemFontOfSize:12];
+    label.textAlignment = NSTextAlignmentCenter;
+    [label sizeToFit];
+    
+    [self.view addSubview:label];
     
 }
 
@@ -187,8 +197,9 @@ static NSString * const ID = @"cell";
     NSString *imageName = [NSString stringWithFormat:@"second%ld",indexPath.item + 1];
     cell.image = [UIImage imageNamed:imageName];
     cell.tag = indexPath.item + 1;
-    
     return cell;
 }
 /*****************************UICollectionViewDataSource*********************************/
+
+
 @end

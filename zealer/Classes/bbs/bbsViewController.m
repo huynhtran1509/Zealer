@@ -20,7 +20,7 @@
     // Do any additional setup after loading the view.
     
     self.view.backgroundColor = [UIColor redColor];
-    
+    self.navigationItem.title = @"社区";
     self.automaticallyAdjustsScrollViewInsets = NO;
     
     //self.navigationController.navigationBar.translucent = NO;
@@ -39,10 +39,6 @@
     [self.view addSubview:scrollView];
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
 
 
 

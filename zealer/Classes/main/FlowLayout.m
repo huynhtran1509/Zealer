@@ -18,7 +18,9 @@
     5.缩放比例:由cell离中心点距离决定
  */
 
+
 @implementation FlowLayout
+
 
 
 // 指定一个区域就能获取这个区域内所有cell的布局对象
@@ -45,6 +47,7 @@
         CGFloat scale = 1.05 - delta / w * 0.5;
         
         att.transform = CGAffineTransformMakeScale(scale, scale);
+        
     }
     
     return atts;
@@ -89,12 +92,7 @@
         }
     }
     
-    // 注意:这里应该是-,详情看PPT最后一页
     proposedContentOffset.x -= minDelta;
-    
-//    NSLog(@"%f",minDelta);
-    
-    
     
     return proposedContentOffset;
 }
