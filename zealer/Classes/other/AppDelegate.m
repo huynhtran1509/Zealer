@@ -45,9 +45,9 @@
     [self.window addSubview:_view];
 
    
-    [UIView animateWithDuration:0.4 delay:2 options:UIViewAnimationOptionTransitionFlipFromRight animations:^{
+    [UIView animateWithDuration:0.4 delay:1.8 options:UIViewAnimationOptionCurveEaseOut animations:^{
         _launchAnimationView.alpha = 0;
-        [self.window bringSubviewToFront:_launchAnimationView];
+//        [self.window bringSubviewToFront:_launchAnimationView];
 
     } completion:^(BOOL finished) {
         
