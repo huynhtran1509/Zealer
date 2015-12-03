@@ -53,6 +53,7 @@ static NSString * const ID = @"cell";
     collectionView.delegate = self;
     collectionView.frame = CGRectMake(0, 0, self.view.bounds.size.width, 140);
     [collectionView  registerNib:[UINib nibWithNibName:@"PhonelistViewCell" bundle:nil] forCellWithReuseIdentifier:ID];
+    collectionView.showsHorizontalScrollIndicator = NO;
     [self.view addSubview:collectionView];
 }
 
