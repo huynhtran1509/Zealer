@@ -10,7 +10,7 @@
 #import "HJWTabbarController.h"
 #import "UIImage+GIF.h"
 
-
+// backy提交
 @interface AppDelegate ()
 @property (nonatomic, strong) UIImageView *launchAnimationView;
 @property (nonatomic, strong) UIView *view;
