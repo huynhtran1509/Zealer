@@ -78,8 +78,11 @@ static NSString * const PID = @"cell";
     
     [self setUpTableView];
     [self setUpBottomPhone];
-    
+    //设置首页底部fix 图片
+    UIImageView *img = [[UIImageView alloc]initWithFrame:CGRectMake(0, 140, self.view.bounds.size.width, 127)];
+    img.image = [UIImage imageNamed:@"fix"];
     [self.tableView.tableFooterView addSubview:self.phoneView.view];
+    [self.tableView.tableFooterView addSubview: img];
     [self.tableView.tableHeaderView addSubview:self.scrollView];
     [self.tableView.tableHeaderView addSubview:_collectionView];
     [self.tableView.tableHeaderView addSubview:self.label];
@@ -174,7 +177,7 @@ static NSString * const PID = @"cell";
     
     //_oriOffsetY = -(_collectionView.HJW_height + self.scrollView.HJW_height);
     
-    self.tableView.contentInset = UIEdgeInsetsMake(64, 0, 385, 0);
+    self.tableView.contentInset = UIEdgeInsetsMake(64, 0, 450, 0);
 
     UIView *head = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 0, AllScrollH)];
     head.backgroundColor = [UIColor orangeColor];
