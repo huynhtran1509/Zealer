@@ -11,6 +11,10 @@
 #import "PhotoCell.h"
 #import "FlowLayout.h"
 #import "GlobalConst.h"
+#import "table.h"
+#import "TableViewCell.h"
+#import "PhonelistViewCell.h"
+#import "PhoneViewController.h"
 
 #define AllScrollH _collectionView.HJW_height + self.scrollView.HJW_height
 
@@ -20,22 +24,35 @@
 @property (nonatomic, strong) XMGInfiniteScrollView *scrollView ;
 @property (nonatomic, strong) UIPageControl *pageControl;
 @property (nonatomic, strong) UICollectionView  *collectionView;
+//@property (nonatomic, strong) UICollectionView  *phoneCollection;
 @property (nonatomic, strong) UITableView *tableView;
 @property (nonatomic, strong) UILabel *label;
 @property (assign, nonatomic, getter=isScrollDirectionPortrait) BOOL scrollDirectionPortrait;
-@property (nonatomic,assign) CGFloat page;
-
-/**
- *  tableview 偏移量
- */
-@property (nonatomic, assign) CGFloat oriOffsetY;
-
-@property (nonatomic, strong) UIView  *headView;
+@property (nonatomic, assign) CGFloat page;
+@property (nonatomic, strong) NSArray *table;
+@property(nonatomic, strong) PhoneViewController  *phoneView;
 @end
 
 @implementation mainViewController
 
 static NSString * const ID = @"cell";
+static NSString * const PID = @"cell";
+- (NSArray *)table
+{
+    if (!_table) {
+        NSString *filePath = [[NSBundle mainBundle] pathForResource:@"tabpic.plist" ofType:nil];
+        NSArray *dicts = [NSArray arrayWithContentsOfFile:filePath];
+        
+        NSMutableArray *arrayM = [NSMutableArray arrayWithCapacity:dicts.count];
+        
+        for (NSDictionary *dict in dicts) {
+            table *obj = [table modelWithDict:dict];
+            [arrayM addObject: obj];
+        }
+        _table = arrayM;
+    }
+    return _table;
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -56,11 +73,18 @@ static NSString * const ID = @"cell";
     
     //设置collectionView上面的label
     [self setUpCollectionLabel];
-    
+
    
-    [self.view addSubview:_collectionView];
-    [self.view addSubview:self.label];
-    [self.view addSubview:self.pageControl];
+    
+    [self setUpTableView];
+    [self setUpBottomPhone];
+    
+    [self.tableView.tableFooterView addSubview:self.phoneView.view];
+    [self.tableView.tableHeaderView addSubview:self.scrollView];
+    [self.tableView.tableHeaderView addSubview:_collectionView];
+    [self.tableView.tableHeaderView addSubview:self.label];
+    [self.tableView.tableHeaderView addSubview:self.pageControl];
+    
     [self.view addSubview:self.tableView];
     
 }
@@ -122,7 +146,7 @@ static NSString * const ID = @"cell";
     CGFloat MaxY = CGRectGetMaxY(self.scrollView.frame);
     
     //创建Collectionview
-    self.collectionView =  [[UICollectionView alloc] initWithFrame:CGRectMake(0,  MaxY, self.view.bounds.size.width, 145) collectionViewLayout:layout];
+    self.collectionView = [[UICollectionView alloc] initWithFrame:CGRectMake(0,  MaxY, self.view.bounds.size.width, 145) collectionViewLayout:layout];
     
     _collectionView.backgroundColor = [UIColor whiteColor];
     
@@ -141,21 +165,30 @@ static NSString * const ID = @"cell";
 - (void)setUpTableView
 {
     
-    self.tableView = [[UITableView alloc]initWithFrame:CGRectMake(0, 0, screenW, 1000) style:UITableViewStylePlain];
     
+    UITableView *tableView = [[UITableView alloc]initWithFrame:CGRectMake(0, 0, screenW, 1000) style:UITableViewStylePlain];
+    self.tableView = tableView;
     self.tableView.dataSource = self;
     
     self.tableView.delegate = self;
     
     //_oriOffsetY = -(_collectionView.HJW_height + self.scrollView.HJW_height);
     
-    self.tableView.contentInset = UIEdgeInsetsMake(AllScrollH, 0, 0, 0);
+    self.tableView.contentInset = UIEdgeInsetsMake(64, 0, 385, 0);
 
-//    UIView *v = [[UIView alloc] initWithFrame:CGRectMake(2000, 2000, self.view.bounds.size.width, AllScrollH)];
-//    v.backgroundColor = [UIColor greenColor];
-//    self.headView = v;
-    self.tableView.tableHeaderView.backgroundColor = [UIColor greenColor];
-    self.tableView.tableHeaderView = self.headView;
+    UIView *head = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 0, AllScrollH)];
+    head.backgroundColor = [UIColor orangeColor];
+    self.tableView.tableHeaderView = head;
+    self.tableView.showsVerticalScrollIndicator = NO;
+    self.tableView.rowHeight = 150;
+    self.tableView.separatorStyle = UITableViewCellSeparatorStyleSingleLineEtched;
+//    self.tableView.backgroundColor = [UIColor blackColor];
+    self.tableView.sectionHeaderHeight = 5;
+    self.tableView.sectionFooterHeight = 5;
+    //设置tableview的FooterView
+    UIView *foot = [[UIView alloc]initWithFrame:CGRectMake(0, 0, 0, 200)];
+    foot.backgroundColor = [UIColor purpleColor];
+    self.tableView.tableFooterView = foot;
 }
 
 
@@ -163,19 +196,19 @@ static NSString * const ID = @"cell";
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 30;
+    return self.table.count;
+
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString * Index = @"ID";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:Index];
-    if (cell == nil) {
-        cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:Index];
-        cell.backgroundColor = [UIColor redColor];
-    }
+
     
-    cell.textLabel.text = [NSString stringWithFormat:@"%ld",indexPath.row];
+    TableViewCell *cell = [TableViewCell  cellWithTableView:tableView];
+    table *tb = self.table[indexPath.row];
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
+    cell.tabData = tb;
+    cell.backgroundColor = HJWBackgroundColor;
     return cell;
 }
 
@@ -184,7 +217,7 @@ static NSString * const ID = @"cell";
 //1.设置主页顶部轮播图
 - (void)setMainTopImage{
     self.scrollView = [[XMGInfiniteScrollView alloc] init];
-    self.scrollView.frame = CGRectMake(0, scrollY, screenW, scrollH);
+    self.scrollView.frame = CGRectMake(0, 0, screenW, scrollH);
     self.scrollView.backgroundColor = [UIColor redColor];
     self.scrollView.images = @[
                           [UIImage imageNamed:@"second1"],
@@ -196,8 +229,6 @@ static NSString * const ID = @"cell";
     self.scrollView.pageControl.currentPageIndicatorTintColor = [UIColor orangeColor];
     self.scrollView.pageControl.pageIndicatorTintColor = [UIColor grayColor];
     //    scrollView.scrollDirectionPortrait = YES;
-    [self.view addSubview:self.scrollView];
-
 }
 
 
@@ -212,16 +243,13 @@ static NSString * const ID = @"cell";
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    
-    // 创建cell
-    PhotoCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:ID forIndexPath:indexPath];
-    
-    cell.backgroundColor = [UIColor redColor];
+        PhotoCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:ID forIndexPath:indexPath];
+        cell.backgroundColor = [UIColor redColor];
+        NSString *imageName = [NSString stringWithFormat:@"second%ld",indexPath.item + 1];
+        cell.image = [UIImage imageNamed:imageName];
+        cell.tag = indexPath.item + 1;
+        return cell;
 
-    NSString *imageName = [NSString stringWithFormat:@"second%ld",indexPath.item + 1];
-    cell.image = [UIImage imageNamed:imageName];
-    cell.tag = indexPath.item + 1;
-    return cell;
 }
 
 
@@ -247,6 +275,15 @@ static NSString * const ID = @"cell";
         }
         self.pageControl.currentPage = page;
     }
+    
+}
+
+#pragma mark - 底部手机列表
+- (void)setUpBottomPhone
+{
+    PhoneViewController * phoneView = [[PhoneViewController alloc]init];
+    self.phoneView = phoneView;
+    
     
 }
 

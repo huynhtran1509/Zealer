@@ -5,6 +5,20 @@
       "scale" : "1x"
     },
     {
+      "resizing" : {
+        "mode" : "9-part",
+        "center" : {
+          "mode" : "stretch",
+          "width" : 1,
+          "height" : 1
+        },
+        "cap-insets" : {
+          "bottom" : 150,
+          "top" : 149,
+          "right" : 355,
+          "left" : 354
+        }
+      },
       "idiom" : "universal",
       "filename" : "comment1@2x.jpg",
       "scale" : "2x"

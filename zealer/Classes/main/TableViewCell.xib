@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9527.1" systemVersion="14F1021" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9525.1"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="cell" selectionStyle="default" indentationWidth="10" id="hOZ-uQ-WcI" customClass="TableViewCell">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="hOZ-uQ-WcI" id="nCX-yl-TQ6">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="FuG-QK-zcl">
+                        <rect key="frame" x="10" y="5" width="300" height="33.5"/>
+                    </imageView>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="bottom" secondItem="FuG-QK-zcl" secondAttribute="bottom" constant="5" id="1A8-n6-vgh"/>
+                    <constraint firstItem="FuG-QK-zcl" firstAttribute="top" secondItem="nCX-yl-TQ6" secondAttribute="top" constant="5" id="S41-T5-sec"/>
+                    <constraint firstItem="FuG-QK-zcl" firstAttribute="leading" secondItem="nCX-yl-TQ6" secondAttribute="leading" constant="10" id="hQF-Iz-ueh"/>
+                    <constraint firstAttribute="trailing" secondItem="FuG-QK-zcl" secondAttribute="trailing" constant="10" id="uxR-cq-HlN"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="Img" destination="FuG-QK-zcl" id="3yJ-yT-bQU"/>
+            </connections>
+            <point key="canvasLocation" x="398" y="431"/>
+        </tableViewCell>
+    </objects>
+</document>

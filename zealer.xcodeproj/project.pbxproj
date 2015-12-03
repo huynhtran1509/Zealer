@@ -22,6 +22,13 @@
 		C800C3391C0D9A11005E1145 /* UIView+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = C800C3381C0D9A11005E1145 /* UIView+Extension.m */; };
 		C800C33D1C0DB0D5005E1145 /* GlobalConst.m in Sources */ = {isa = PBXBuildFile; fileRef = C800C33C1C0DB0D5005E1145 /* GlobalConst.m */; };
 		C8A436E71BFB9628007202EE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C8A436E51BFB9628007202EE /* Main.storyboard */; };
+		C8C595A81C0F1453004CAF29 /* TableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C8C595A71C0F1453004CAF29 /* TableViewCell.m */; };
+		C8C595AA1C0F317A004CAF29 /* TableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C8C595A91C0F317A004CAF29 /* TableViewCell.xib */; };
+		C8C595AC1C0F3EB2004CAF29 /* tabpic.plist in Resources */ = {isa = PBXBuildFile; fileRef = C8C595AB1C0F3EB2004CAF29 /* tabpic.plist */; };
+		C8C595AF1C0F3F63004CAF29 /* table.m in Sources */ = {isa = PBXBuildFile; fileRef = C8C595AE1C0F3F63004CAF29 /* table.m */; };
+		C8C595B41C0F46C5004CAF29 /* PhonelistViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C8C595B21C0F46C5004CAF29 /* PhonelistViewCell.m */; };
+		C8C595B51C0F46C5004CAF29 /* PhonelistViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C8C595B31C0F46C5004CAF29 /* PhonelistViewCell.xib */; };
+		C8C595B81C0F6E6A004CAF29 /* PhoneViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C8C595B71C0F6E6A004CAF29 /* PhoneViewController.m */; };
 		EFC2C2966231E1C81B5A8068 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1A128311031DB581579EC9A4 /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -57,6 +64,17 @@
 		C800C33C1C0DB0D5005E1145 /* GlobalConst.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GlobalConst.m; sourceTree = "<group>"; };
 		C8A436C91BFB9540007202EE /* zealer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = zealer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C8A436E61BFB9628007202EE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		C8C595A61C0F1453004CAF29 /* TableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TableViewCell.h; sourceTree = "<group>"; };
+		C8C595A71C0F1453004CAF29 /* TableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TableViewCell.m; sourceTree = "<group>"; };
+		C8C595A91C0F317A004CAF29 /* TableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TableViewCell.xib; sourceTree = "<group>"; };
+		C8C595AB1C0F3EB2004CAF29 /* tabpic.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = tabpic.plist; path = ../Classes/main/tabpic.plist; sourceTree = "<group>"; };
+		C8C595AD1C0F3F63004CAF29 /* table.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = table.h; sourceTree = "<group>"; };
+		C8C595AE1C0F3F63004CAF29 /* table.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = table.m; sourceTree = "<group>"; };
+		C8C595B11C0F46C5004CAF29 /* PhonelistViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhonelistViewCell.h; sourceTree = "<group>"; };
+		C8C595B21C0F46C5004CAF29 /* PhonelistViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhonelistViewCell.m; sourceTree = "<group>"; };
+		C8C595B31C0F46C5004CAF29 /* PhonelistViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PhonelistViewCell.xib; sourceTree = "<group>"; };
+		C8C595B61C0F6E6A004CAF29 /* PhoneViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhoneViewController.h; sourceTree = "<group>"; };
+		C8C595B71C0F6E6A004CAF29 /* PhoneViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhoneViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -178,6 +196,7 @@
 		C800C31C1C0D7F59005E1145 /* Resource */ = {
 			isa = PBXGroup;
 			children = (
+				C8C595AB1C0F3EB2004CAF29 /* tabpic.plist */,
 				C8A436E51BFB9628007202EE /* Main.storyboard */,
 				C800C31D1C0D7F59005E1145 /* Assets.xcassets */,
 				C800C31E1C0D7F59005E1145 /* Info.plist */,
@@ -239,6 +258,8 @@
 			children = (
 				C800C3081C0D7F59005E1145 /* mainViewController.h */,
 				C800C3091C0D7F59005E1145 /* mainViewController.m */,
+				C8C595B61C0F6E6A004CAF29 /* PhoneViewController.h */,
+				C8C595B71C0F6E6A004CAF29 /* PhoneViewController.m */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -246,6 +267,7 @@
 		C800C3341C0D825D005E1145 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				C8C595B01C0F4686004CAF29 /* PhoneList */,
 				C800C30D1C0D7F59005E1145 /* XMGInfiniteScrollView.h */,
 				C800C30E1C0D7F59005E1145 /* XMGInfiniteScrollView.m */,
 				C800C30A1C0D7F59005E1145 /* PhotoCell.h */,
@@ -253,6 +275,9 @@
 				C800C30C1C0D7F59005E1145 /* PhotoCell.xib */,
 				C800C3061C0D7F59005E1145 /* FlowLayout.h */,
 				C800C3071C0D7F59005E1145 /* FlowLayout.m */,
+				C8C595A61C0F1453004CAF29 /* TableViewCell.h */,
+				C8C595A71C0F1453004CAF29 /* TableViewCell.m */,
+				C8C595A91C0F317A004CAF29 /* TableViewCell.xib */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -260,6 +285,8 @@
 		C800C3351C0D827E005E1145 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				C8C595AD1C0F3F63004CAF29 /* table.h */,
+				C8C595AE1C0F3F63004CAF29 /* table.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -306,6 +333,16 @@
 				C800C31C1C0D7F59005E1145 /* Resource */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		C8C595B01C0F4686004CAF29 /* PhoneList */ = {
+			isa = PBXGroup;
+			children = (
+				C8C595B11C0F46C5004CAF29 /* PhonelistViewCell.h */,
+				C8C595B21C0F46C5004CAF29 /* PhonelistViewCell.m */,
+				C8C595B31C0F46C5004CAF29 /* PhonelistViewCell.xib */,
+			);
+			name = PhoneList;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -370,9 +407,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				C800C32C1C0D7F59005E1145 /* iPhone-6-Crop.gif in Resources */,
+				C8C595AA1C0F317A004CAF29 /* TableViewCell.xib in Resources */,
 				C800C3241C0D7F59005E1145 /* PhotoCell.xib in Resources */,
 				C800C32A1C0D7F59005E1145 /* Assets.xcassets in Resources */,
 				C8A436E71BFB9628007202EE /* Main.storyboard in Resources */,
+				C8C595AC1C0F3EB2004CAF29 /* tabpic.plist in Resources */,
+				C8C595B51C0F46C5004CAF29 /* PhonelistViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -431,12 +471,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C8C595AF1C0F3F63004CAF29 /* table.m in Sources */,
+				C8C595B41C0F46C5004CAF29 /* PhonelistViewCell.m in Sources */,
 				C800C3391C0D9A11005E1145 /* UIView+Extension.m in Sources */,
+				C8C595A81C0F1453004CAF29 /* TableViewCell.m in Sources */,
 				C800C3261C0D7F59005E1145 /* meViewController.m in Sources */,
 				C800C3281C0D7F59005E1145 /* HJWTabbarController.m in Sources */,
 				C800C3231C0D7F59005E1145 /* PhotoCell.m in Sources */,
 				C800C3221C0D7F59005E1145 /* mainViewController.m in Sources */,
 				C800C3251C0D7F59005E1145 /* XMGInfiniteScrollView.m in Sources */,
+				C8C595B81C0F6E6A004CAF29 /* PhoneViewController.m in Sources */,
 				C800C3201C0D7F59005E1145 /* bbsViewController.m in Sources */,
 				C800C3211C0D7F59005E1145 /* FlowLayout.m in Sources */,
 				C800C3291C0D7F59005E1145 /* main.m in Sources */,
